@@ -13,7 +13,7 @@ trait Users[E[_]] {
 
   def findAll(start: Int, batchSize: Int) : E[Seq[User]]
 
-  def create(id: UUID,username: String,plainTextPassword: String) : E[Boolean]
+  def create(id: UUID, username: String, plainTextPassword: String) : E[Boolean]
 
   def rename(userId: UUID, newUsername: String) : E[Boolean]
 

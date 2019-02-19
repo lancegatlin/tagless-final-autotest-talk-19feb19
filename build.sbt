@@ -1,12 +1,16 @@
 scalaVersion := "2.12.6"
 
-name := "final-tagless-talk-03Oct18"
+name := "autotest-tagless-talk-19Feb19"
 
-scalacOptions ++= Seq("-Ypartial-unification","-feature","-language:higherKinds")
+scalacOptions ++= Seq(
+  "-Ypartial-unification", // required by cats
+  "-feature",
+  "-language:higherKinds"
+)
 
 libraryDependencies ++= Seq(
-  "org.typelevel" %% "cats-core" % "1.4.0",
-  "org.typelevel" %% "cats-free" % "1.4.0"
+  "org.typelevel" %% "cats-core" % "1.6.0",
+  "org.typelevel" %% "cats-laws" % "1.6.0"
 )
 
 libraryDependencies ++= Seq(
@@ -15,7 +19,7 @@ libraryDependencies ++= Seq(
 
   // note: needed to run legacy tests
   "org.scalamock" %% "scalamock" % "4.1.0" % Test,
-  "org.scalatest" %% "scalatest" % "3.0.1" % Test
+  "org.scalatest" %% "scalatest" % "3.0.5" % Test
 )
 
 
