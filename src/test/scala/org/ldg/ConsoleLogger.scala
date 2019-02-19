@@ -4,6 +4,9 @@ import java.time.Instant
 
 import cats.Id
 
+/**
+  * A basic logger that prints to the console
+  */
 class ConsoleLogger extends Logger[Id] {
   def log(message: String, cause: Throwable) =
     println(s"[${Instant.now}]$message (cause=$cause)")

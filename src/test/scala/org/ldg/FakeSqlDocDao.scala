@@ -7,6 +7,15 @@ import SqlDocDao.RecordMetadata
 
 import scala.collection.JavaConverters._
 
+/**
+  * An implementation of SqlDocDao that stores data in a thread-safe
+  * Java ConcurrentHasMap
+  *
+  * Note: does not implement findByNativeQuery
+  *
+  * @tparam A key type
+  * @tparam E value type
+  */
 class FakeSqlDocDao[A,E] extends SqlDocDao[A, E, Id] {
   type Data = (A, E, RecordMetadata)
   val data = new java.util.concurrent.ConcurrentHashMap[A,Data]()
@@ -21,7 +30,11 @@ class FakeSqlDocDao[A,E] extends SqlDocDao[A, E, Id] {
     throw new UnsupportedOperationException
 
   def findAll(start: Int, batchSize: Int): Id[Seq[Data]] =
-    data.asScala.valuesIterator.toSeq
+    if(start == 0 && batchSize == 0) {
+      data.asScala.valuesIterator.toSeq
+    } else {
+      data.asScala.valuesIterator.slice(start, start + batchSize).toSeq
+    }
 
   def insert(id: A, a: E): Id[Boolean] = {
     data.putIfAbsent(id, (id, a, RecordMetadata(

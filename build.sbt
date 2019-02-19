@@ -5,7 +5,8 @@ name := "autotest-tagless-talk-19Feb19"
 scalacOptions ++= Seq(
   "-Ypartial-unification", // required by cats
   "-feature",
-  "-language:higherKinds"
+  "-language:higherKinds",
+  "-deprecation"
 )
 
 libraryDependencies ++= Seq(

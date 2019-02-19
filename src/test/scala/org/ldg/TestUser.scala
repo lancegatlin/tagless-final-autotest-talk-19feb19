@@ -6,6 +6,9 @@ import cats.kernel.Eq
 import org.scalacheck._
 import org.scalacheck.Gen._
 
+/**
+  * Used to generate TestUsers with ScalaCheck
+  */
 case class TestUser(
   id: UUID,
   username: String,

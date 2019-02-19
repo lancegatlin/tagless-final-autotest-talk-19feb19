@@ -10,6 +10,9 @@ import org.ldg.impl.UsersImpl.UserData
 import org.scalatest.{FlatSpec, Matchers}
 import org.scalamock.scalatest.MockFactory
 
+/**
+  * Example tests implemented using Scala test & mocking
+  */
 class UsersImplLegacyTest extends FlatSpec with Matchers with MockFactory {
   class Fixture(
    val usersDao: SqlDocDao[UUID,UserData,Id] = mock[SqlDocDao[UUID,UserData,Id]],
