@@ -1,12 +1,12 @@
-"Automatic Testing With Final Tagless"
+"Auto Test Tagless with Discipline and ScalaCheck"
 
 Description: In this talk, we'll explore using the testing library Discipline
 (with ScalaCheck) to automatically test "laws" (i.e. rules) against an example
 final tagless algebra. Using a more generic rule testing approach, we will write
 less testing code and achieve higher code coverage. This talk builds on the
-October talk "Finally! Tagless and Fancy Free Monads". It is based on the ideas
-laid out by Marcin Rzeźnicki in his blog post "Tagless with Discipline — Testing
- Scala Code The Right Way" (https://medium.com/iterators/tagless-with-discipline-testing-scala-code-the-right-way-e74993a0d9b1).
+October talk "Finally! Tagless and Fancy Free Monads" (https://github.com/lancegatlin/tagless-final-talk-03Oct18).
+It is based on the ideas from Marcin Rzeźnicki in his blog post "Tagless with
+Discipline — Testing Scala Code The Right Way" (https://medium.com/iterators/tagless-with-discipline-testing-scala-code-the-right-way-e74993a0d9b1).
 
 At the end of this talk, you'll know:
 * How to write Discipline laws to test a final tagless algebra

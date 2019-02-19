@@ -109,8 +109,11 @@ class UsersLaws[F[_]](
     F.pure(Some(true))
   }
 
+  // todo: disallow dup UUID
   // todo: Users.findByUsername
   // todo: Users.setPassword
+  // todo: Users.findAll
+  // todo: Users.rename
 
   val ruleSet =
     new SimpleRuleSet(
