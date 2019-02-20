@@ -14,6 +14,7 @@ package org.ldg
   * @tparam F
   */
 trait UsersEfx[F[_]] { self:Users[F] =>
+  // todo: make this rollback too?
   // the current state of the underlying mutable state
   def efx_state : F[List[Users.User]]
   

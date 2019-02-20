@@ -97,8 +97,21 @@ class UsersLaws[F[_]](
   def law_createDisallowDupUsername(testUser: TestUser) = {
     val users = mkFixture()
     users.create(testUser.id, testUser.username, testUser.plainTextPassword) >>
-    users.create(UUID.randomUUID(), testUser.username, testUser.plainTextPassword) <->
-    F.pure(false)
+      users.create(UUID.randomUUID(), testUser.username, testUser.plainTextPassword) <->
+      F.pure(false)
+  }
+
+  def law_createDisallowDupUsernameEfx(testUser: TestUser) = {
+    {
+      val users = mkFixture()
+      users.create(testUser.id, testUser.username, testUser.plainTextPassword) >>
+      users.create(UUID.randomUUID(), testUser.username, testUser.plainTextPassword) >>
+      users.efx_state
+    } <-> {
+      val users = mkFixture()
+      users.efx_createUser(testUser) >>
+      users.efx_state
+    }
   }
 
   def law_createRemoveFind(testUser: TestUser) = {
