@@ -9,7 +9,7 @@ import cats.implicits._
 
 object UsersImplFutureAutoTest {
   implicit val functionK_Id_Future = new FunctionK[Id,Future] {
-    def apply[A](fa: Id[A]): Future[A] = Future(fa)
+    def apply[A](fa: Id[A]): Future[A] = Future.successful(fa)
   }
 
 
