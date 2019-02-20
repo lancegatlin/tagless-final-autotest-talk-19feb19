@@ -57,4 +57,7 @@ class FakeSqlDocDao[A,E] extends SqlDocDao[A, E, Id] {
         removed = Some(Instant.now)
       ))
     }) != null
+
+  def clear() : Id[Unit] =
+    data.clear()
 }

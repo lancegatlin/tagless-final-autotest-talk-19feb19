@@ -11,7 +11,9 @@ scalacOptions ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-core" % "1.6.0",
-  "org.typelevel" %% "cats-laws" % "1.6.0"
+  "org.typelevel" %% "cats-laws" % "1.6.0",
+  "org.typelevel" %% "cats-effect" % "1.2.0",
+  "org.typelevel" %% "cats-tagless-macros" % "0.1.0"
 )
 
 libraryDependencies ++= Seq(
@@ -32,4 +34,7 @@ addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8")
 
 // if your project uses multiple Scala versions, use this for cross building
 addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.8" cross CrossVersion.binary)
+
+// for cats-tagless-macros
+addCompilerPlugin(("org.scalameta" % "paradise" % "3.0.0-M11").cross(CrossVersion.full))
 

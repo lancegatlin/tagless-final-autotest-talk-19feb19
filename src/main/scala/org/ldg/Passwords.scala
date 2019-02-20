@@ -1,10 +1,13 @@
 package org.ldg
 
-trait Passwords[E[_]] {
+import cats.tagless._
+
+@autoFunctorK
+trait Passwords[F[_]] {
   def compareDigest(
     plainTextPassword: String,
     passwordDigest: String
-  ) : E[Boolean]
+  ) : F[Boolean]
 
-  def mkDigest(plainTextPassword: String) : E[String]
+  def mkDigest(plainTextPassword: String) : F[String]
 }
