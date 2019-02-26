@@ -1,3 +1,5 @@
+Presentation: https://bit.ly/2Tj9v0W
+
 "Automatic law checking with Tagless (using Discipline and ScalaCheck)"
 
 Description: In this talk, we'll explore using the testing libraries Discipline
